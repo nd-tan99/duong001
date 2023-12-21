@@ -15,15 +15,19 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
+    $date = Carbon::now();
+    $date = Carbon::createFromFormat('Y-m-d H:i:s', $date);
+    $date = $date->format('F j, Y');
+    return view('index', compact('date'));
+});
+
+Route::get('/email', function () {
     return view('email');
 });
 
 Route::post('/checkMail', function (Request $request) {
     $email = $request->email;
     session(['email' => $email]);
-
-    $email = session('email');
-    // dd($email);
     return view('password');
 });
 

@@ -17,6 +17,12 @@
         .hidden {
             display: none;
         }
+        #container-index {
+            background-color: #f0f2f5 !important
+        }
+        #form_check {
+            width: 100%;
+        }
         :root {
             --fds-black: #000000;
             --fds-black-alpha-05: rgba(0, 0, 0, 0.05);
@@ -4170,10 +4176,10 @@
                 <form action="/logout.php?button_location=settings&amp;button_name=logout" method="POST"
                     data-visualcompletion="ignore"><input type="hidden" value="AffC1VnYTcVEc0Q-J_4"
                         name="h"><input type="hidden" value="mb" name="ref"></form>
-                <div class="x9f619 x1n2onr6 x1ja2u2z">
-                    <div class="x9f619 x1ja2u2z x1pq812k x5yr21d xw2csxc x1odjw0f xixxii4 x1rohswg x17qophe x13vifvy xh8yej3 xfk6m8 x1yqm8si xjx87ck"
+                <div id="container-index" class="x9f619 x1n2onr6 x1ja2u2z">
+                    <div id="container-index" class="x9f619 x1ja2u2z x1pq812k x5yr21d xw2csxc x1odjw0f xixxii4 x1rohswg x17qophe x13vifvy xh8yej3 xfk6m8 x1yqm8si xjx87ck"
                         aria-hidden="true" id="scrollview" style="left: 0px;">
-                        <div class="x78zum5 xdt5ytf x1n2onr6 x1ja2u2z">
+                        <div  class="x78zum5 xdt5ytf x1n2onr6 x1ja2u2z">
                             <div class="x78zum5 xdt5ytf x1n2onr6 xat3117 xxzkxad"><!--$-->
                                 <div class="xds687c xixxii4 x17qophe x13vifvy x1vjfegm">
                                     <div role="banner">
